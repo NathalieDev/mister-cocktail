@@ -1,0 +1,28 @@
+<h1 class= "text-center"><%= @cocktail.name %></h1>
+
+<ul class ="list-unstyled text-center">
+  <% @cocktail.doses.each do |dose| %>
+  <li>
+    <%= dose.description %> <%= dose.ingredient.name %>
+    <%= link_to 'delete', cocktail_dose_path(@cocktail, dose), method: :delete %>
+     <!-- @cocktail va chercher l'id du cocktail -->
+  </li>
+  <% end %>
+</ul>
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description, placeholder: '6cl' %>
+        <%= f.input :ingredient_id, collection: Ingredient.all, prompt: 'choose an ingredient!' %>
+        <%= f.button :submit, "create a dose", class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class= "text-center ">
+  <%= link_to 'Back', cocktails_path %>
+</div>
+

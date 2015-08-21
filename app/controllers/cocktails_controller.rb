@@ -10,10 +10,11 @@ before_action :set_cocktail, only: [:show]
   end
 
   def show
+    @dose = Dose.new
   end
 
   def create
-    @cocktails = Cocktail.new(cocktail_params)
+    @cocktail = Cocktail.new(cocktail_params)
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
@@ -23,7 +24,7 @@ before_action :set_cocktail, only: [:show]
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_cocktails
+    def set_cocktail
       @cocktail = Cocktail.find(params[:id])
     end
 
@@ -32,3 +33,4 @@ before_action :set_cocktail, only: [:show]
       params.require(:cocktail).permit(:name)
     end
 end
+

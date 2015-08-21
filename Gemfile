@@ -3,9 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
-gem 'rails_12factor', group: :production
-gem 'puma',           group: :production
-
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -26,6 +23,16 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+
+# Frontend gem
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'font-awesome-sass', '~> 4.2.0'
+gem 'simple_form'
+
+gem 'rails_12factor', group: :production
+gem 'puma',           group: :production
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -38,6 +45,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem "better_errors"
+  gem "binding_of_caller"
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
